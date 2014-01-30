@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>Google Map API V3</title>
+<script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=02fcfa4f56/"},atok:"88e88f09821aadeb6d2d9229b8be5e62",petok:"ef7e9c8b7d01324cdcdc61517e4356c362f63c2d-1391105451-1800",zone:"code-web.org",rocket:"0",apps:{"exprmntly":{"service_id":"5533"},"ga_key":{"ua":"UA-212296-2","ga_bs":"2"}}}];CloudFlare.push({"apps":{"ape":"824244f03ff427802f65588a67e0ae64"}});var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.async=!0;a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=221574e73d/cloudflare.min.js";b.parentNode.insertBefore(a,b);}}catch(e){};
+//]]>
+</script>
+<link type="text/css" href="style.css" rel="stylesheet"/>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		// Cinéma Pathé Bellecour
+		var myLatlng = new google.maps.LatLng(45.758796,4.834607);
+		
+		// Carte centrée sur le cinéma
+		var myMapOptions = {
+			zoom: 16,
+			center: myLatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		
+		// Création de la carte
+		var myMap = new google.maps.Map(
+			document.getElementById('map'),
+			myMapOptions
+			);
+		
+		// Création de l'icône
+		var myMarkerImage = new google.maps.MarkerImage('img/pathe.png');
+		
+		// Création du marker
+		var myMarker = new google.maps.Marker({
+			// Coordonnées du cinéma
+			position: myLatlng, 
+			map: myMap,
+			// Nous ajoutons un paramètre supplémentaire
+			// icon pour lequel nous donnons le MarkerImage
+			// que nous venons de créer.
+			icon: myMarkerImage,
+			title: "Cinéma Pathé Bellecour"
+		});
+		
+		// Options de la fenêtre
+		var myWindowOptions = {
+			content:
+			'<h6>Cinéma Pathé Bellecour</h6>'+
+			'<p><a href="http://www.cinemasgaumontpathe.com/cinemas/cinema-pathe-lyon-bellecour/" title="Site officiel">Visiter le site officiel</a></p>'
+		};
+		
+		// Création de la fenêtre
+		var myInfoWindow = new google.maps.InfoWindow(myWindowOptions);
+		
+		// Affichage de la fenêtre au click sur le marker
+		google.maps.event.addListener(myMarker, 'click', function() {
+			myInfoWindow.open(myMap,myMarker);
+		});
+	}
+	</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-212296-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);
+/* ]]> */
+</script>
+</head>
+<body>
+
+<div id="map">
+</div>
+</body>
+</html>
