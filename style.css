@@ -1,8 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
-*{margin:0;padding:0;}
-#map{
-	width:285px;height:270px;
-	}
-#map.mapFull{left:0;top:0;right:0;bottom:0;margin:0;width:auto;height:auto;}
+#map
+{
+	width:285px;
+	height:270px;
+}
