@@ -43,19 +43,43 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 			title: "Cinéma Pathé Bellecour"
 		});
 		
-		// Options de la fenêtre
-		var myWindowOptions = {
-			content:
-			'<h6>Cinéma Pathé Bellecour</h6>'+
-			'<p><a href="http://www.cinemasgaumontpathe.com/cinemas/cinema-pathe-lyon-bellecour/" title="Site officiel">Visiter le site officiel</a></p>'
-		};
+		var fnacImage = new google.maps.MarkerImage('images/fnac.png');
+		var fnacLatlng = new google.maps.LatLng(50.6360722,3.0647608);
+		var fnacMarker = new google.maps.Marker({
+			// Coordonnées du cinéma
+			position: fnacLatlng, 
+			map: myMap,
+			// Nous ajoutons un paramètre supplémentaire
+			// icon pour lequel nous donnons le MarkerImage
+			// que nous venons de créer.
+			icon: fnacImage,
+			title: "fnac Lille"
+		});
 		
-		// Création de la fenêtre
-		var myInfoWindow = new google.maps.InfoWindow(myWindowOptions);
+		var furetImage = new google.maps.MarkerImage('images/furet.png');
+		var furetLatlng = new google.maps.LatLng(50.6366642,3.0631837);
+		var furetMarker = new google.maps.Marker({
+			// Coordonnées du cinéma
+			position: furetLatlng, 
+			map: myMap,
+			// Nous ajoutons un paramètre supplémentaire
+			// icon pour lequel nous donnons le MarkerImage
+			// que nous venons de créer.
+			icon: furetImage,
+			title: "furet Lille"
+		});
 		
-		// Affichage de la fenêtre au click sur le marker
-		google.maps.event.addListener(myMarker, 'click', function() {
-			myInfoWindow.open(myMap,myMarker);
+		var epitechImage = new google.maps.MarkerImage('images/epitech.jpg');
+		var epitechLatlng = new google.maps.LatLng(50.6351672,3.0619123);
+		var epitechMarker = new google.maps.Marker({
+			// Coordonnées du cinéma
+			position: epitechLatlng, 
+			map: myMap,
+			// Nous ajoutons un paramètre supplémentaire
+			// icon pour lequel nous donnons le MarkerImage
+			// que nous venons de créer.
+			icon: epitechImage,
+			title: "epitech Lille"
 		});
 	}
 	</script>
